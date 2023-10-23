@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Justin Still - Personal Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: lightblue;
-            color: purple;
-            text-align: center;
-        }
-        .container {
-            padding: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>Justin Still</h1>
         <p>10-year military veteran for the United States of America</p>
         <p>Father | Believer of God | Promoter of Renewable Energy</p>
-        <p>Welcome to my personal website! Here, I share my experiences, beliefs, and passion for renewable energy and a positive climate.</p>
-    </div>
+    </header>
+    <main>
+        <section class="container">
+            <p>Welcome to my personal website! Here, I share my experiences, beliefs, and passion for renewable energy and a positive climate.</p>
+        </section>
+    </main>
 </body>
 </html>
+body {
+    font-family: Arial, sans-serif;
+    background-color: lightblue;
+    color: purple;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
