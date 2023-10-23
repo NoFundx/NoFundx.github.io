@@ -2,7 +2,7 @@
 
 ## What is Casket Defense LLC?
 
-Casket Defense LLC is a California-based company that creates and sells unique NFTs that represent real-world products. Each NFT is a digital certificate of ownership that can be verified on the blockchain. By purchasing a Casket Defense NFT, you are not only acquiring a rare and valuable digital asset, but also supporting various real-world projects that are of interest to coffee lovers, such as a coffee shop in New York and sustainability initiatives throughout the coffee-growing world.
+Casket Defense LLC is a California-based company that creates and sells unique NFTs that represent real-world products. Each NFT is a digital certificate of ownership that can be verified on the blockchain. By purchasing a Casket Defense NFT, you are not only acquiring a rare and valuable digital asset, but also supporting various real-world projects.
 
 ## What are the benefits of Casket Defense NFTs?
 
