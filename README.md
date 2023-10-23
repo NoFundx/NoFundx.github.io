@@ -15,7 +15,7 @@ Casket Defense NFTs have several benefits, such as:
 
 ## How can I get a Casket Defense NFT?
 
-You can get a Casket Defense NFT by participating in the public sale that will take place on [OpenSea](^1^), the largest marketplace for NFTs. The public sale will start on November 27, 2023 at 12:00 PM PST and will last until all 10,000 NFTs are sold out. The price of each NFT will be 0.1 ETH (Ethereum), plus gas fees. You will need a compatible wallet, such as [MetaMask](^2^), to connect to OpenSea and purchase a Casket Defense NFT.
+You can get a Casket Defense NFT by participating in the public sale that will take place on [OpenSea](^1^), the largest marketplace for NFTs. The public sale will start (to be determined) at 12:00 PM PST and will last until all 10,000 NFTs are sold out. The price of each NFT will be 0.5 ETH (Ethereum), plus gas fees. You will need a compatible wallet, such as [MetaMask](^2^), to connect to OpenSea and purchase a Casket Defense NFT.
 
 ## Where can I learn more about Casket Defense LLC?
 
