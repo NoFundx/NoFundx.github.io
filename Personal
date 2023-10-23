@@ -29,4 +29,7 @@ body {
     padding: 20px;
     text-align: center;
 }
+<body style="background-color: #ADD8E6;">
+<body style="background-color: rgb(173, 216, 230);">
+<body style="background-color: lightblue;">
 
