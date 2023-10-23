@@ -1,5 +1,3 @@
-# Here is a possible markdown text format for "Casket Defense LLC" a NFT project with real world products:
-
 # Casket Defense LLC
 
 ## What is Casket Defense LLC?
