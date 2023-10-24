@@ -1,7 +1,9 @@
-<head>
+
+body {                      
+    background-color: lightblue;}
+    <head>
   <link rel="stylesheet" href="style.css">
 </head>
-body 
-{background-color: lightblue;}
+
 
 
