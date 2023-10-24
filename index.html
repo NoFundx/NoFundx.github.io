@@ -6,31 +6,25 @@
             background-color: lightblue;
         }
         h1 {
-            font-size: 130%; /* Reducing the font size by 10% */
-            text-align: center; /* Center-align the title */
-            border: 2px solid #000; /* Set a black border */
-            background-color: #f4e5b2; /* Light brown background color */
-            color: white; /* White font color */
-            padding: 10px; /* Add padding inside the border */
-            display: inline-block; /* To contain the border around the title */
-            animation: borderMove 4s linear infinite; /* CSS animation for border movement */
+            font-size: 130%;
+            text-align: center;
+            border: 2px solid #000;
+            background-color: #f4e5b2;
+            color: white;
+            padding: 10px;
+            display: inline-block;
+            animation: moveBackAndForth 4s linear infinite;
         }
 
-        @keyframes borderMove {
-            0% {
+        @keyframes moveBackAndForth {
+            0%, 100% {
                 margin-left: 0;
             }
             25% {
                 margin-left: 20px;
             }
-            50% {
-                margin-left: 0;
-            }
             75% {
                 margin-left: -20px;
-            }
-            100% {
-                margin-left: 0;
             }
         }
     </style>
@@ -61,6 +55,7 @@
     </main>
 </body>
 </html>
+
 
 
 
