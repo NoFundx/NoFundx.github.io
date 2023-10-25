@@ -59,9 +59,12 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    font-family: 'Your 14th Century Font', cursive;
+    font-family: Arial, sans-serif;
     color: #000;
 }
+
+/* The rest of your CSS styles... */
+
 
 .container {
     padding: 20px;
