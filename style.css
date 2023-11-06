@@ -1,108 +1,81 @@
-/* Apply a simple reset to remove padding and margin */
-* {
+/* styles.css */
+body {
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #f4f4f4;
 }
 
-:root {
-    /* Define CSS variables for color scheme */
-    --background-color: #d8bfd8;
-    --text-color: #4B5320;
-    --border-color: #000;
-}
-
-body {
-    background-color: var(--background-color);
-    background-image: url('your-texture-image.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-family: Arial, sans-serif;
-    color: var(--text-color);
-}
-
-h1 {
-    font-size: 155%;
-    text-align: center;
-    border: 4px solid var(--border-color);
-    background-color: var(--background-color);
-    color: var(--text-color);
-    padding: 10px;
-    display: inline-block;
-    /* Use CSS variable for animation name to avoid typos */
-    animation: moveBackAndForth 5s linear infinite;
-}
-
-/* Ensure the pseudo-element is positioned correctly */
-h1::after {
-    content: "";
-    background-image: url('https://openmoji.org/data/color/svg/1FAA8.svg');
-    width: 40px;
-    height: 40px;
-    display: inline-block;
-    vertical-align: middle; /* Align with text */
-}
-
-.container {
-    padding: 20px;
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
     text-align: center;
 }
 
-.frame, .contact-form, .bitcoin-payment {
-    border: 4px solid var(--border-color);
-    padding: 20px;
-    margin: 10px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    /* Make these elements responsive */
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 2rem;
+}
+
+.product-item {
+    background-color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 button {
-    display: block;
-    margin: 20px auto; /* Center the button and add vertical space */
-    padding: 10px 20px; /* Increase padding for better touch target size */
+    background-color: #008cba;
+    color: #fff;
     border: none;
-    border-radius: 5px;
-    background-color: var(--border-color);
-    color: white;
-    font-size: 1rem;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
     cursor: pointer;
-    transition: background-color 0.3s; /* Smooth background color transition */
+    border-radius: 5px;
 }
 
-/* Hover and focus styles for button for better user interaction */
-button:hover,
-button:focus {
-    background-color: darken(var(--border-color), 10%); /* Darken function to reduce brightness */
+button:hover {
+    background-color: #005f73;
 }
-
-/* Define media queries for responsiveness */
-@media only screen and (max-width: 768px) {
-    h1 {
-        font-size: 125%;
-    }
-    
-    /* Adjust padding and margins on smaller screens */
-    .container, .frame, .contact-form, .bitcoin-payment {
-        padding: 10px;
-        margin: 5px;
-    }
-}
-
-/* The keyframes for the animation */
-@keyframes moveBackAndForth {
-    0%, 100% {
-        margin-left: 20px;
-    }
-    50% {
-        margin-left: -20px;
-    }
-}
-
-/* Minify CSS before production for better performance */
-
-
