@@ -1,86 +1,108 @@
-/* Apply styles to the body element */
-body {
-    background-color: #d8bfd8;
+/* Apply a simple reset to remove padding and margin */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Apply styles to the header (h1) */
+:root {
+    /* Define CSS variables for color scheme */
+    --background-color: #d8bfd8;
+    --text-color: #4B5320;
+    --border-color: #000;
+}
+
+body {
+    background-color: var(--background-color);
+    background-image: url('your-texture-image.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+}
+
 h1 {
     font-size: 155%;
     text-align: center;
-    border: 4px solid #000;
-    background-color: #d8bfd8;
-    color: #4B5320;
+    border: 4px solid var(--border-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
     padding: 10px;
     display: inline-block;
-    animation: moveBackandForth 5s linear infinite;
+    /* Use CSS variable for animation name to avoid typos */
+    animation: moveBackAndForth 5s linear infinite;
 }
 
-/* Apply styles to the pseudo-element ::after of h1 */
+/* Ensure the pseudo-element is positioned correctly */
 h1::after {
     content: "";
     background-image: url('https://openmoji.org/data/color/svg/1FAA8.svg');
     width: 40px;
     height: 40px;
     display: inline-block;
+    vertical-align: middle; /* Align with text */
 }
 
-/* Apply styles to the container for frames */
 .container {
+    padding: 20px;
     text-align: center;
 }
 
-/* Apply styles to individual frames */
-.frame {
-    border: 4px solid #000;
-    padding: 10px;
+.frame, .contact-form, .bitcoin-payment {
+    border: 4px solid var(--border-color);
+    padding: 20px;
     margin: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    /* Make these elements responsive */
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* Apply styles to the Buy Now button */
 button {
     display: block;
-    margin: 0 auto;
+    margin: 20px auto; /* Center the button and add vertical space */
+    padding: 10px 20px; /* Increase padding for better touch target size */
+    border: none;
+    border-radius: 5px;
+    background-color: var(--border-color);
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth background color transition */
 }
 
-/* Define the keyframes for the animation */
+/* Hover and focus styles for button for better user interaction */
+button:hover,
+button:focus {
+    background-color: darken(var(--border-color), 10%); /* Darken function to reduce brightness */
+}
+
+/* Define media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 125%;
+    }
+    
+    /* Adjust padding and margins on smaller screens */
+    .container, .frame, .contact-form, .bitcoin-payment {
+        padding: 10px;
+        margin: 5px;
+    }
+}
+
+/* The keyframes for the animation */
 @keyframes moveBackAndForth {
     0%, 100% {
         margin-left: 20px;
     }
-    25% {
-        margin-left: 20px;
-    }
-    75% {
+    50% {
         margin-left: -20px;
     }
 }
-body {
-    background-image: url('your-texture-image.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-family: Arial, sans-serif;
-    color: #000;
-}
 
-/* The rest of your CSS styles... */
-
-
-.container {
-    padding: 20px;
-    text-align: center;
-}
-
-.contact-form {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.bitcoin-payment {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-}
+/* Minify CSS before production for better performance */
 
 
