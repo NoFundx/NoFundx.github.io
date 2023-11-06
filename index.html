@@ -53,6 +53,26 @@
         });
     });
 </script>
+<script>
+    // Function to display the modal
+    function showModal() {
+        const modal = document.getElementById('shopWithMeModal');
+        modal.style.display = 'block';
+    }
+
+    // Function to hide the modal
+    function hideModal() {
+        const modal = document.getElementById('shopWithMeModal');
+        modal.style.display = 'none';
+    }
+
+    // Event listeners for opening and closing the modal
+    window.onload = function() {
+        document.getElementById('openModalBtn').addEventListener('click', showModal);
+        document.getElementById('closeModalBtn').addEventListener('click', hideModal);
+    };
+</script>
+
 
 </body>
     <footer>
