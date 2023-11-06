@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Immersive Storefront</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <h1>Storefront Name</h1>
+<<body>
+    <header class="hero">
+        <h1>Casket Defense</h1>
         <nav>
             <ul>
                 <li><a href="#products">Products</a></li>
@@ -35,11 +36,28 @@
         </section>
         <!-- Repeat the above section for different categories -->
     </main>
+<script>
+  document.querySelectorAll('.modal-open').forEach(button => {
+        button.addEventListener('click', () => {
+            const modalId = button.getAttribute('data-modal-target');
+            const modal = document.getElementById(modalId);
+            modal.style.display = 'block';
+        });
+    });
 
+    document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal')) {
+                modal.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+</body>
     <footer>
         <p>&copy; 2023 Storefront Name. All rights reserved.</p>
     </footer>
-</body>
 </html>
 
 
