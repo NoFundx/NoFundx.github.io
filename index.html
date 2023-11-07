@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CASKET DEFENSE</title>
+    <title>Casket Defense</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<<body>
+<body>
     <header class="hero">
         <h1>Casket Defense</h1>
         <nav>
@@ -28,66 +28,89 @@
                     <img src="path-to-product-image.jpg" alt="Product Name">
                     <h3>Product Name</h3>
                     <p>Product Description</p>
-                    <span>Price</span>
-                    <button>Add to Cart</button>
+                    <span class="price">Price</span>
+                    <button class="add-to-cart">Add to Cart</button>
                 </article>
                 <!-- ... -->
             </div>
         </section>
         <!-- Repeat the above section for different categories -->
     </main>
-<script>
-  document.querySelectorAll('.modal-open').forEach(button => {
-        button.addEventListener('click', () => {
-            const modalId = button.getAttribute('data-modal-target');
-            const modal = document.getElementById(modalId);
-            modal.style.display = 'block';
-        });
-    });
+    
+    <div class="cart-container">
+        <h3>Your Cart <span id="cart-count">(0)</span></h3>
+        <ul id="cart-items">
+            <!-- Cart items will be added here dynamically -->
+        </ul>
+        <div>Total: <span id="cart-total">$0.00</span></div>
+        <button class="buy-button" onclick="checkout()">Checkout</button>
+    </div>
+    
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('click', (e) => {
-            if (e.target.classList.contains('modal')) {
-                modal.style.display = 'none';
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', () => {
+                addToCart(button.parentElement.querySelector('h3').innerText, button.parentElement.querySelector('.price').innerText);
+            });
+        });
+
+        function addToCart(productName, price) {
+            const product = { name: productName, price: parseFloat(price.replace(/^\$/, '')), quantity: 1 };
+            let productExists = false;
+            cart.forEach(p => {
+                if (p.name === product.name) {
+                    p.quantity++;
+                    productExists = true;
+                }
+            });
+            if (!productExists) {
+                cart.push(product);
             }
-        });
-    });
-</script>
-<script>
-    // Function to display the modal
-    function showModal() {
-        const modal = document.getElementById('shopWithMeModal');
-        modal.style.display = 'block';
-    }
+            saveCart();
+        }
 
-    // Function to hide the modal
-    function hideModal() {
-        const modal = document.getElementById('shopWithMeModal');
-        modal.style.display = 'none';
-    }
+        function saveCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartUI();
+        }
 
-    // Event listeners for opening and closing the modal
-    window.onload = function() {
-        document.getElementById('openModalBtn').addEventListener('click', showModal);
-        document.getElementById('closeModalBtn').addEventListener('click', hideModal);
-    };
-</script>
+        function updateCartUI() {
+            const cartItemsEl = document.getElementById('cart-items');
+            const cartTotalEl = document.getElementById('cart-total');
+            const cartCountEl = document.getElementById('cart-count');
+            cartItemsEl.innerHTML = '';
+            let total = 0;
+            let itemCount = 0;
+            cart.forEach((product, index) => {
+                total += product.price * product.quantity;
+                itemCount += product.quantity;
+                const itemEl = document.createElement('li');
+                itemEl.innerText = `${product.name} - $${product.price} x ${product.quantity}`;
+                const removeBtn = document.createElement('span');
+                removeBtn.innerText = 'Remove';
+                removeBtn.onclick = () => removeItemFromCart(index);
+                itemEl.appendChild(removeBtn);
+                cartItemsEl.appendChild(itemEl);
+            });
+            cartTotalEl.innerText = `$${total.toFixed(2)}`;
+            cartCountEl.innerText = `(${itemCount})`;
+        }
 
+        function removeItemFromCart(index) {
+            cart.splice(index, 1);
+            saveCart();
+        }
 
-</body>
+        function checkout() {
+            alert('Checkout - This will be processed further');
+        }
+
+        updateCartUI();
+    </script>
+    
     <footer>
         <p>&copy; 2023 Casket Defense. All rights reserved.</p>
     </footer>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
