@@ -46,68 +46,69 @@
         <button class="buy-button" onclick="checkout()">Checkout</button>
     </div>
     
+   // Place this script in your HTML file where the old script is.
     <script>
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        addToCart(button.parentElement.querySelector('h3').innerText, button.parentElement.querySelector('.price').innerText);
+    });
+});
 
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', () => {
-                addToCart(button.parentElement.querySelector('h3').innerText, button.parentElement.querySelector('.price').innerText);
-            });
-        });
-
-        function addToCart(productName, price) {
-            const product = { name: productName, price: parseFloat(price.replace(/^\$/, '')), quantity: 1 };
-            let productExists = false;
-            cart.forEach(p => {
-                if (p.name === product.name) {
-                    p.quantity++;
-                    productExists = true;
-                }
-            });
-            if (!productExists) {
-                cart.push(product);
-            }
-            saveCart();
+function addToCart(productName, price) {
+    const product = { name: productName, price: parseFloat(price.replace(/^\$/, '')), quantity: 1 };
+    let productExists = false;
+    cart.forEach(p => {
+        if (p.name === product.name) {
+            p.quantity++;
+            productExists = true;
         }
+    });
+    if (!productExists) {
+        cart.push(product);
+    }
+    saveCart();
+}
 
-        function saveCart() {
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartUI();
-        }
+function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartUI();
+}
 
-        function updateCartUI() {
-            const cartItemsEl = document.getElementById('cart-items');
-            const cartTotalEl = document.getElementById('cart-total');
-            const cartCountEl = document.getElementById('cart-count');
-            cartItemsEl.innerHTML = '';
-            let total = 0;
-            let itemCount = 0;
-            cart.forEach((product, index) => {
-                total += product.price * product.quantity;
-                itemCount += product.quantity;
-                const itemEl = document.createElement('li');
-                itemEl.innerText = `${product.name} - $${product.price} x ${product.quantity}`;
-                const removeBtn = document.createElement('span');
-                removeBtn.innerText = 'Remove';
-                removeBtn.onclick = () => removeItemFromCart(index);
-                itemEl.appendChild(removeBtn);
-                cartItemsEl.appendChild(itemEl);
-            });
-            cartTotalEl.innerText = `$${total.toFixed(2)}`;
-            cartCountEl.innerText = `(${itemCount})`;
-        }
+function updateCartUI() {
+    const cartItemsEl = document.getElementById('cart-items');
+    const cartTotalEl = document.getElementById('cart-total');
+    const cartCountEl = document.getElementById('cart-count');
+    cartItemsEl.innerHTML = '';
+    let total = 0;
+    let itemCount = 0;
+    cart.forEach((product, index) => {
+        total += product.price * product.quantity;
+        itemCount += product.quantity;
+        const itemEl = document.createElement('li');
+        itemEl.className = 'cart-item';
+        itemEl.innerText = `${product.name} - $${product.price} x ${product.quantity}`;
+        const removeBtn = document.createElement('button');
+        removeBtn.innerText = 'Remove';
+        removeBtn.className = 'remove-item';
+        removeBtn.onclick = () => removeItemFromCart(index);
+        itemEl.appendChild(removeBtn);
+        cartItemsEl.appendChild(itemEl);
+    });
+    cartTotalEl.innerText = `$${total.toFixed(2)}`;
+    cartCountEl.innerText = `(${itemCount})`;
+}
 
-        function removeItemFromCart(index) {
-            cart.splice(index, 1);
-            saveCart();
-        }
+function removeItemFromCart(index) {
+    cart.splice(index, 1);
+    saveCart();
+}
 
-        function checkout() {
-            alert('Checkout - This will be processed further');
-        }
+function checkout() {
+    alert('Checkout - This will be processed further');
+}
 
-        updateCartUI();
-    </script>
+updateCartUI();
+</script>
     
     <footer>
         <p>&copy; 2023 Casket Defense. All rights reserved.</p>
