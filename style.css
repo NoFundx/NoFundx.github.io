@@ -1,18 +1,38 @@
-/* styles.css */
-body {
-    font-family: 'Arial', sans-serif;
+/* Global Styles */
+body, html {
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+    color: #333;
+    box-sizing: border-box;
 }
 
-header {
+a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header and Footer Styles */
+header, footer {
     background-color: #333;
     color: #fff;
     padding: 1rem 0;
     text-align: center;
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Navigation Styles */
 nav ul {
     list-style: none;
     padding: 0;
@@ -23,16 +43,7 @@ nav ul li {
     margin-right: 20px;
 }
 
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
+/* Product Grid & Items Styles */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -41,9 +52,11 @@ nav ul li a:hover {
 }
 
 .product-item {
-    background-color: #fff;
+    background: #fff;
     padding: 1rem;
     text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .product-item img {
@@ -52,48 +65,37 @@ nav ul li a:hover {
     object-fit: cover;
 }
 
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.product-item h3 {
+    margin: 0.5rem 0;
 }
 
+.product-item .price {
+    color: #fcb69f;
+    font-weight: bold;
+}
+
+/* Button Styles */
 button {
     background-color: #008cba;
     color: #fff;
     border: none;
     padding: 10px 20px;
     text-align: center;
-    text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #005f73;
 }
-/* Add these styles to your styles.css file */
 
-/* Modern gradient background */
-body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
-    color: #333;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Cart styles */
+/* Cart Container Styles */
 .cart-container {
-    background: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 8px;
     padding: 15px;
     margin-top: 15px;
@@ -113,53 +115,21 @@ body {
     border-radius: 4px;
     padding: 5px 10px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Additional styles for product items */
-.product-item {
-    background: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    padding: 15px;
-    margin: 15px;
-    text-align: center;
+.remove-item:hover {
+    background-color: #d9534f;
 }
 
-.product-item h3 {
-    color: #333;
-}
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 0.5rem 0;
+    }
 
-.product-item .price {
-    color: #fcb69f;
-    font-weight: bold;
-}
-
-/* Footer styles */
-footer {
-    text-align: center;
-    padding: 10px 0;
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-}
-
-/* Navigation and header styles */
-.hero {
-    background: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: white;
-    text-decoration: none;
+    .product-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
 }
