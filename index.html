@@ -19,35 +19,39 @@
         </nav>
     </header>
     
-    <main id="products">
+    <main id="main-products">
         <section class="product-category">
-            <h2>Category Name</h2>
+            <h2>Featured Products</h2>
             <div class="product-grid">
-                <!-- Repeat this part for each product -->
+                <!-- Product items will be dynamically inserted here -->
+                <!-- Example of a product item -->
                 <article class="product-item">
-                    <img src="path-to-product-image.jpg" alt="Product Name">
+                    <img src="path-to-product-image.jpg" alt="Descriptive alt text for Product">
                     <h3>Product Name</h3>
-                    <p>Product Description</p>
-                    <span class="price">Price</span>
-                    <button class="add-to-cart">Add to Cart</button>
+                    <p>Short product description...</p>
+                    <span class="price">$19.99</span>
+                    <button type="button" class="add-to-cart-btn" role="button">Add to Cart</button>
                 </article>
-                <!-- ... -->
+                <!-- Repeat for each product -->
             </div>
         </section>
-        <!-- Repeat the above section for different categories -->
+        <!-- Additional categories can be added here -->
     </main>
     
-    <div class="cart-container">
+    <aside class="cart-container">
         <h3>Your Cart <span id="cart-count">(0)</span></h3>
-        <ul id="cart-items">
+        <ul id="cart-items-list">
             <!-- Cart items will be added here dynamically -->
         </ul>
         <div>Total: <span id="cart-total">$0.00</span></div>
-        <button class="buy-button" onclick="checkout()">Checkout</button>
-    </div>
+        <button type="button" class="checkout-btn" role="button" onclick="initiateCheckout()">Checkout</button>
+    </aside>
     
-   // Place this script in your HTML file where the old script is.
     <script>
+        // JavaScript for cart functionality will be placed here
+        // Make sure to initialize the cart array
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        // Rest of the JavaScript code...
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', () => {
         addToCart(button.parentElement.querySelector('h3').innerText, button.parentElement.querySelector('.price').innerText);
