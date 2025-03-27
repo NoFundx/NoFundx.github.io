@@ -1,128 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casket Defense</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Eats Bitcoin – Minted Cookies, On-Chain</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    :root {
+      --btc-orange: #f7931a;
+      --btc-dark: #0f0f0f;
+      --btc-gray: #1c1c1e;
+      --btc-white: #f5f5f5;
+      --btc-accent: #ffbd59;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--btc-dark);
+      color: var(--btc-white);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 3rem 1.5rem;
+      text-align: center;
+      background-color: var(--btc-dark);
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--btc-accent);
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: #ccc;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 2rem 0;
+    }
+
+    nav a {
+      color: var(--btc-white);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--btc-orange);
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      color: var(--btc-accent);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-item {
+      background: var(--btc-gray);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 0 12px rgba(255, 189, 89, 0.05);
+      transition: 0.3s ease-in-out;
+    }
+
+    .product-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 16px rgba(255, 189, 89, 0.15);
+    }
+
+    .product-item img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .qr-placeholder {
+      background: #333;
+      color: #aaa;
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin-top: 1rem;
+    }
+
+    .price {
+      display: block;
+      margin-top: 0.75rem;
+      font-size: 1.1rem;
+      color: var(--btc-orange);
+      font-weight: 600;
+    }
+
+    .add-to-cart-btn {
+      margin-top: 1rem;
+      background: var(--btc-orange);
+      color: black;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .add-to-cart-btn:hover {
+      background: var(--btc-accent);
+    }
+
+    .cart-container {
+      margin: 4rem auto 2rem;
+      max-width: 480px;
+      background: var(--btc-gray);
+      padding: 2rem;
+      border-radius: 12px;
+    }
+
+    .cart-container ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 1rem;
+    }
+
+    .cart-container li {
+      margin-bottom: 0.75rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #888;
+      background: var(--btc-dark);
+    }
+
+    footer p {
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-    <!-- Casket Defense Section -->
-    <section class="casket-defense-section">
-        <div class="container">
-            <h1><a href="#main-products" class="home-link">Casket Defense</a></h1>
-        </div>
-    </section>
 
-    <!-- Main Navigation and Hero Section -->
-    <header class="hero">
-        <nav>
-            <ul>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <main id="main-products">
-        <section class="product-category">
-            <h2>Featured Products</h2>
-            <div class="product-grid">
-                <!-- Product items will be dynamically inserted here -->
-                <!-- Example of a product item -->
-                <article class="product-item">
-                    <img src="path-to-product-image.jpg" alt="Descriptive alt text for Product">
-                    <h3>Product Name</h3>
-                    <p>Short product description...</p>
-                    <span class="price">$19.99</span>
-                    <button type="button" class="add-to-cart-btn" role="button">Add to Cart</button>
-                </article>
-                <!-- Repeat for each product -->
-            </div>
-        </section>
-        <!-- Additional categories can be added here -->
-    </main>
-    
-    <aside class="cart-container">
-        <h3>Your Cart <span id="cart-count">(0)</span></h3>
-        <ul id="cart-items-list">
-            <!-- Cart items will be added here dynamically -->
-        </ul>
-        <div>Total: <span id="cart-total">$0.00</span></div>
-        <button type="button" class="checkout-btn" role="button" onclick="initiateCheckout()">Checkout</button>
-    </aside>
-    
-    <script>
-        // JavaScript for cart functionality will be placed here
-        // Make sure to initialize the cart array
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        // Rest of the JavaScript code...
-document.querySelectorAll('.add-to-cart').forEach(button => {
-    button.addEventListener('click', () => {
-        addToCart(button.parentElement.querySelector('h3').innerText, button.parentElement.querySelector('.price').innerText);
-    });
-});
+  <header>
+    <h1>Eats Bitcoin</h1>
+    <p>Premium cookies with embedded QR codes tied to real Bitcoin blocks & satoshis.</p>
+    <nav>
+      <ul>
+        <li><a href="#products">Cookies</a></li>
+        <li><a href="#minting">Minting</a></li>
+        <li><a href="#contact">Support</a></li>
+      </ul>
+    </nav>
+  </header>
 
-function addToCart(productName, price) {
-    const product = { name: productName, price: parseFloat(price.replace(/^\$/, '')), quantity: 1 };
-    let productExists = false;
-    cart.forEach(p => {
-        if (p.name === product.name) {
-            p.quantity++;
-            productExists = true;
-        }
+  <main class="container" id="products">
+    <h2>On-Chain Cookies</h2>
+    <div class="product-grid">
+      <div class="product-item">
+        <img src="cookie.jpg" alt="Chocolate Chip Minted Cookie"/>
+        <h3>Chocolate Chip Cookie</h3>
+        <p>This cookie includes a scannable QR code linked to a live Mempool block view.</p>
+        <div class="qr-placeholder">QR Code + Block Data Loading...</div>
+        <span class="price">$5.00</span>
+        <button class="add-to-cart-btn">Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <aside class="cart-container">
+    <h3>Your Cart <span id="cart-count">(0)</span></h3>
+    <ul id="cart-items"></ul>
+    <div>Total: <span id="cart-total">$0.00</span></div>
+    <button class="add-to-cart-btn" onclick="checkout()">Checkout</button>
+  </aside>
+
+  <footer>
+    <p>&copy; 2025 Eats Bitcoin. Minted in Code. Verified on the Chain. Baked in the USA.</p>
+  </footer>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const item = button.closest('.product-item');
+        const name = item.querySelector('h3').innerText;
+        const price = parseFloat(item.querySelector('.price').innerText.replace('$', ''));
+        addToCart(name, price);
+      });
     });
-    if (!productExists) {
-        cart.push(product);
+
+    function addToCart(name, price) {
+      const existing = cart.find(p => p.name === name);
+      if (existing) {
+        existing.quantity++;
+      } else {
+        cart.push({ name, price, quantity: 1 });
+      }
+      saveCart();
     }
-    saveCart();
-}
 
-function saveCart() {
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartUI();
-}
+    function saveCart() {
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartUI();
+    }
 
-function updateCartUI() {
-    const cartItemsEl = document.getElementById('cart-items');
-    const cartTotalEl = document.getElementById('cart-total');
-    const cartCountEl = document.getElementById('cart-count');
-    cartItemsEl.innerHTML = '';
-    let total = 0;
-    let itemCount = 0;
-    cart.forEach((product, index) => {
-        total += product.price * product.quantity;
-        itemCount += product.quantity;
-        const itemEl = document.createElement('li');
-        itemEl.className = 'cart-item';
-        itemEl.innerText = `${product.name} - $${product.price} x ${product.quantity}`;
+    function updateCartUI() {
+      const list = document.getElementById('cart-items');
+      const totalEl = document.getElementById('cart-total');
+      const countEl = document.getElementById('cart-count');
+      list.innerHTML = '';
+      let total = 0, count = 0;
+      cart.forEach((item, i) => {
+        total += item.price * item.quantity;
+        count += item.quantity;
+        const li = document.createElement('li');
+        li.innerText = `${item.name} - $${item.price} x ${item.quantity}`;
         const removeBtn = document.createElement('button');
         removeBtn.innerText = 'Remove';
-        removeBtn.className = 'remove-item';
-        removeBtn.onclick = () => removeItemFromCart(index);
-        itemEl.appendChild(removeBtn);
-        cartItemsEl.appendChild(itemEl);
-    });
-    cartTotalEl.innerText = `$${total.toFixed(2)}`;
-    cartCountEl.innerText = `(${itemCount})`;
-}
+        removeBtn.onclick = () => removeItem(i);
+        li.appendChild(removeBtn);
+        list.appendChild(li);
+      });
+      totalEl.innerText = `$${total.toFixed(2)}`;
+      countEl.innerText = `(${count})`;
+    }
 
-function removeItemFromCart(index) {
-    cart.splice(index, 1);
-    saveCart();
-}
+    function removeItem(index) {
+      cart.splice(index, 1);
+      saveCart();
+    }
 
-function checkout() {
-    alert('Checkout - This will be processed further');
-}
+    function checkout() {
+      alert("Coming soon: Checkout with Lightning or scan-to-mint QR cookies.");
+    }
 
-updateCartUI();
-</script>
-    
-    <footer>
-        <p>&copy; 2023 Casket Defense. All rights reserved.</p>
-    </footer>
+    updateCartUI();
+  </script>
 </body>
 </html>
