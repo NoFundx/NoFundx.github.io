@@ -1,9 +1,13 @@
 :root {
   --btc-orange: #f7931a;
-  --btc-dark: #0f0f0f;
-  --btc-gray: #1c1c1e;
+  --btc-dark: #0b0b0d;
+  --btc-gray: #1a1a1c;
+  --btc-glass: rgba(26, 26, 28, 0.6);
   --btc-white: #f5f5f5;
   --btc-accent: #ffbd59;
+  --btc-glow: rgba(247, 147, 26, 0.25);
+  --btc-border: rgba(255, 255, 255, 0.08);
+  --transition: all 0.3s ease;
 }
 
 * {
@@ -17,23 +21,28 @@ body {
   background-color: var(--btc-dark);
   color: var(--btc-white);
   line-height: 1.6;
+  scroll-behavior: smooth;
+  background-image: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.02), transparent 80%);
 }
 
 header {
-  padding: 3rem 1.5rem;
+  padding: 4rem 1.5rem 2rem;
   text-align: center;
   background-color: var(--btc-dark);
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   color: var(--btc-accent);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
 }
 
 header p {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 nav ul {
@@ -48,11 +57,23 @@ nav a {
   color: var(--btc-white);
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.2s;
+  transition: var(--transition);
+  position: relative;
 }
 
-nav a:hover {
-  color: var(--btc-orange);
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: var(--btc-orange);
+  transition: var(--transition);
+}
+
+nav a:hover::after {
+  width: 100%;
 }
 
 .container {
@@ -62,10 +83,21 @@ nav a:hover {
 }
 
 h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
   text-align: center;
   color: var(--btc-accent);
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  width: 60px;
+  height: 3px;
+  background: var(--btc-orange);
+  display: block;
+  margin: 0.5rem auto 0;
+  border-radius: 999px;
 }
 
 .product-grid {
@@ -75,66 +107,80 @@ h2 {
 }
 
 .product-item {
-  background: var(--btc-gray);
-  border-radius: 12px;
+  background: var(--btc-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--btc-border);
+  border-radius: 14px;
   padding: 1.5rem;
-  box-shadow: 0 0 12px rgba(255, 189, 89, 0.05);
-  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 20px var(--btc-glow);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
 }
 
 .product-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 0 16px rgba(255, 189, 89, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(255, 189, 89, 0.3);
 }
 
 .product-item img {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-bottom: 1rem;
+  transition: var(--transition);
+}
+
+.product-item img:hover {
+  filter: brightness(1.05);
 }
 
 .qr-placeholder {
-  background: #333;
-  color: #aaa;
+  background: #222;
+  color: #999;
   height: 160px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 0.85rem;
   margin-top: 1rem;
+  border: 1px dashed var(--btc-orange);
 }
 
 .price {
   display: block;
   margin-top: 0.75rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--btc-orange);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .add-to-cart-btn {
   margin-top: 1rem;
   background: var(--btc-orange);
-  color: black;
+  color: var(--btc-dark);
   border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 5px;
+  padding: 0.6rem 1.4rem;
+  border-radius: 6px;
   cursor: pointer;
-  font-weight: 600;
-  transition: background 0.3s ease;
+  font-weight: 700;
+  transition: var(--transition);
+  box-shadow: 0 0 10px var(--btc-glow);
 }
 
 .add-to-cart-btn:hover {
   background: var(--btc-accent);
+  transform: scale(1.05);
 }
 
 .cart-container {
-  margin: 4rem auto 2rem;
+  margin: 5rem auto 2rem;
   max-width: 480px;
   background: var(--btc-gray);
   padding: 2rem;
-  border-radius: 12px;
+  border-radius: 14px;
+  box-shadow: 0 0 15px rgba(255,189,89,0.05);
+  border: 1px solid var(--btc-border);
 }
 
 .cart-container ul {
@@ -145,15 +191,14 @@ h2 {
 
 .cart-container li {
   margin-bottom: 0.75rem;
+  font-size: 0.95rem;
 }
 
 footer {
   text-align: center;
-  padding: 2rem;
+  padding: 2.5rem 1rem;
   color: #888;
   background: var(--btc-dark);
-}
-
-footer p {
   font-size: 0.9rem;
+  border-top: 1px solid var(--btc-border);
 }
